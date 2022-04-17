@@ -1,0 +1,47 @@
+We have particulary two versionning control such as git and mercurial
+
+git innit: to innitialise the project
+git status : to see the status of the changes after mek changes
+git add file1.txt file2.txt or git add *: to add file in the local area
+git restore --staged . : to cancel all the last commit after add it
+git clean : undo local changes
+git status -s: to see the status output such as (added:A) (modified:M) (deleted:D)
+git commit -m: to commit your changes(or change it)
+git  commit -am "Fix the bug to signUp connexion"
+
+git rm file2.txt :to remove file in the directory
+git restore --source=HEAD~1 file.txt : to restore the file to the previous version
+git mv main.js index.txt :rename the file to the respository
+   
+ .gitignore (git add gitignore) :This file is use to add files and directories that will be ignore 
+ 	eg:echo logs/ > .gitignore
+ 
+  git ls-files : show files in the status area
+  ---look for the gitignore according to your project to known types of files that are suppose to been removed or exclude when push your code
+  
+diff --git a/file.js b/file.js: give the difference betweeen 2 files 
+
+***************Add diff tool to vscode*******************
+-git config --global diff.tool vscode
+-git config --global difftool.vscode.cmd "code --wait --dif $LOCAL $REMOTE"
+
+git config --global -e :to make configuration editing inside the vscode
+
+git difftool: launch a visual diiftool to comparing quick fast
+git difftool --staged: launch difftool to compare last commit files
+
+*********view the history*************
+git log:history commit start from earliest to the lastest
+git log --oneline --reverse: show the commit in reverse in one line without detail 
+
+****************commit changes**************
+git show id(git show d600g): will give what had changed in the commit exactly
+git ls-tree:will show  directories in the data base of your git repository in active
+ 	it can be: commits, blobs(files),trees(directories), tags
+	
+ 
+ **************To learn else******************
+ -Browsing history
+ -Branching and merging 
+ -Collaboration
+ -Rewritting history
