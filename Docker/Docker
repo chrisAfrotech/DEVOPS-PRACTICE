@@ -54,5 +54,3 @@ docker ps : to see the docker container started
 docker ps -a: to see stopped docker container files
 docker run it ubuntu: to run and start container with ubuntu
 
-
-https://app.slack.com/client/T03BR8QH1QA/C03BNC7QCE9
