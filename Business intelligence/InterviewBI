@@ -1,0 +1,196 @@
+Data Warehousing interview Question & Answer
+
+0. What's Business intelligence?
+	Is the process by which we collect data about the business, analyse and then take the decision
+
+1. What's Data warehouse?
+	is the collection of data which are subject oriented, integrate, historise and organise for the support of decision help.
+
+2. Difference between DW and relational data base:
+	Data warehouse:
+		-Contains historical informations which helps for the analysing and business metrics
+		-Used to read data
+		-End users are business analist/data analist
+	Relational Data Base:
+		-Contains information that is required to run the business
+		-Database is mainly to write data
+		-End users are ops team members
+
+3. What's data warehousing?
+	Is the process to transforming data into information
+
+data source(file,db)--ETL-->Staging db--->DW-->Data Mart--->users group
+
+4. What's OLAP(ONLINE ANALYTICAL PROCESSING):
+	is a flexible way to make complicated analysis of multidimensional data
+Data present in DW IS accessed by running OLAP queries while DB are quired by running OLTP operations.
+OLAP activities are performed by converting OLTP data in warehouse into OLAP cube
+
+5. what's OLTP(ONLINE TRANSACTIONAL PROCESSING)? How different OLTP from OLAP?
+ 	OLTP queries are used to perform DDL operations on a bd
+ 	OLTP systems use data in the form of two dimensional tables(with rows and columns)
+
+ 	OLAP is use to perform real time analysis on multidimensional data in a warehouse
+
+
+6. what's a dimension table?
+	 Dimension tables are tables that describe the dimensions involvefor analysis and reporting
+
+	 dimension have attributes (eg: for dimension custommer we can have attributes id, name, age)
+
+
+7. What is a Fact table?
+	A fact is a tabe containing the measure of the dimensions in a dimension table.
+
+	Any dimension table is linked to a fact table(eg: we have the fact sell for the dimensions custommers_sell, products..)
+
+
+8.What is the level of granularity  of a fact table?
+	is a depth(profondeur) of data level
+	A fact table is usualy designed at a low level of granularity
+	eg: low level granularity for date dimension can be year, month, week
+
+
+9. What is the different between additive, semi additive and non additive facts?
+	Additive fact is a measure in a fact table that can be fully summed accross any of the dimensions associated with it.
+	eg: Total sells per day amount in the dimension custommer
+
+	Semi-Additive fact is a measure in a fact table that can be summed accross some dimensions associated with it but not at all.
+	eg: Daily average balance of the bank holder(proprietaire du compte bancaire) 
+
+	Non Additive fact is a measure in a fact table that can't be summed accross any of the dimensions associated with it. or is calculated measure that is precalculated and store in the fact table.
+	eg: Discount(remise) percentage in the fact table
+
+
+10.What's a factless fact table?
+ 	Factless fact table are the fact tables which don't contain numeric fact column in the fact table.    
+	eg:consider a seminar dimension like title, date, name of customer, gender, state, age are dimesion without any measure for the fact table
+
+
+11.What are conformed dimensions and conformed fact?
+	Conformed dimensions are dimensions that are used accross multiple data marts in combination with multiple facts tables
+
+	Conformed Fact is a facttable that can be used accross multiple data marts in combination with multiple facts tables
+
+
+12.What are agregate tables?
+	Agregated tables are table which contain the existing warehouse data grouped to certain level of dimension
+	eg:the sell aof the day (we can have a table which can give that without check all the look for all the sell individualy )
+
+
+13.What's summary information?
+	Summary information is the area in a data warehouse where predifined agregation are kept.
+
+
+14.What is ETL(EXTRACT TRANFORM LOAD)?
+	ETL is the process of using a software to extract the desired data from various sources, then transform that data by using rules and lookup tables to meet your requirement and then looading it into the data warehouse.
+	
+	eg:*-Talend studio -SAS data management* -SQL server integration services(ssis) -Sap data service -Data migrator -Oracle Warehouse Builder -Ab initio -Data junction -Informatica powercenter 
+
+
+15. What's a DATAMART
+	Data mart is a smaller version of the Data warehouse which deals with a single subject
+	It selve a portion of the departement
+
+16. What's Metadata?
+	Metadata is defined as data about data. Metadata in DW defines witch table is source and witch one is target
+
+
+17. What's Datamining? and what's it different to DW?
+	Data mining is the process to analysing data in different dimensions and summarising it into useful info
+	Here ata is searched, retrieve and analysed from DW to answer business questions.
+
+	Data warehousing is about storing analytical data in a structure suitable for data mining.
+	Here data is extracted from operational systems usually on a daily basis(Quotidient)
+
+
+18. What's OLAP(online Analytic process) servers, cube? and list types of it
+	-MOLAP(multidimensional OLAP) is a form of OLAP that Preprocesses and stores the data directly into a multidimensional db. 
+	it can perform complex calculations but only limited data can be handled
+	-Rolap(relational OLAP) is a form of OLAP that performs analysis of multidimensional data stored(magasin de donne) in a relational db rather than a multidimensional db.
+	Greater amount of data can be stored but it required more processing time and disk space
+	-Holap(Hybrid OLAP) is a combination of the advantages of MOLAP and ROLAP. it can drill throught from the cube into underlying relational data.
+ 
+ 	Multidimensional db is a cube
+
+
+ 19. Which one is faster between MOLAP and ROLAP
+ 	Molap is faster than ROLAP
+
+
+ 20. What are the operations that can be performed by an OLAP cube? Explain
+ 	-ROLL-UP
+ 	-DRILL-DOWN
+ 	-SLICE
+ 	-DICE
+ 	-PIVOT
+
+ROLL-UP: performs agregation on a data cube by either
+	-climbing up hierachy concept for dimension
+	-dimension reduction
+	eg: city combine into country
+
+DRILL-DOWN: reverse operation of the ROLL-UP
+	-stepping down the concept hierachy for a dimension
+	-intoducing a new dimension
+
+SLICE: operation provides a new sub-cube from one particular dimension in a gven cube 
+	eg:slice on "Q1"
+
+DICE:operation provides a new sub-cube from TWO or more dimension in a gven cube.
+
+PIVOT: operation is also know as rotation operation.
+It transfrom the axes in order to provide an alternative presentation of data.
+
+
+22. How many dimensions are selected in slice operation?
+	Only one dimension is selected
+		
+	How many dimensions are selected in dice operation?
+	Two or more dimensions are selected for a given cube
+
+
+23. what is data Normalization? What's the benefit of it?
+	For DW we don't use normalisation we only do denormalisation and don't update data just add new data.
+
+	Normalisation is the process of spliting up the data into multiple data. 
+	Different normalised form are: 1NF,2NF,3NF
+
+	The benefit with normalisation is that it reducing data redundancy wich is only for OLTP system.
+
+
+24. What's ER DIAGRAM? IS it implemented in a data Warehhouse?
+	ER diagram(ENTITY-RELATIONAL DIAGRAM) illustrates the interrelationships between the various entities in a database.
+
+	ER diagram is not implemented in DW but in OLTP system
+	we make use of DIMENSIONAL MODELING in DW
+
+	Dimensional modeling is a concept which can be used by DW designers to build thier own data warehouse. 
+
+	types of DM:
+		-conceptual modeling (dimension, hierachie, fait, mesure) 
+		-Logical modeling(entities and attributes of 'ROLAP, MOLAP, HOLAP')
+		-physical modeling(tables and column)
+
+
+25. What's SCD(slowly changing dimensions)? what are types?
+	SCD applies to the cases where records change over time.
+
+	There are 3 types of scd:
+	SCD1: the new records replaces the original record
+	SCD2: the new records is added to te existing customer dimensions table
+	SCD3: the original data is modified to include new data
+
+
+
+26. star model, constellation model, Flocon de neige model
+
+
+27. What are Key columns in fact and dimension table? 
+ 	The key column in dimension table are the PRIMARY key of entity table
+ 	The key column in fact tables are the FOREIGN key of entity table
+
+
+
+28. What's REAL-time Data warehousing?
+	it captures the business whenever it occurs
