@@ -2,13 +2,13 @@
 	What is Agile
 	What is scrum
 	Agile scrum master training
-	Scrum master role
+ 	Scrum master role
 	Scrum methodology
 	Scrum Meeting
 	Scrum vs Kanban
 	Scrum interview Questions
 
-*****************what is agile?************************
+***********************what is agile?*******************
   Agile is a set of methods and practices that focuses on iterative development 
 
 Advantages of using agile methodology:
@@ -68,5 +68,38 @@ Scrum ARTIFACTS (they are 3)
 		* contains task that the team aims to complete to satisfy the sprint goal(objective decided for the sprint as an outcome between prod owner and team)
 
 	-Product increment
+		Is  the combination of all product backlog tasks completed in a sprint and the value of increments of previous sprints
+
+**************Scrum FRAMEWORK**************
+									________________
+									|		sprint 		 |
+						----- |	Retrospective|<------------
+						|			|______________|						|
+						|												 -----	  |
+						|												|Daily|	  |
+_________		|												|scrum| 	|
+|				|		^												-------	  |
+|Product|	 |sprint |	|sprint |		|Scrum|  |Sprint||Increment|
+|Backlog|> |planing|> |Backlog|>  |teams|> |Review|>|   
+---------		 
+		 ^																				 |
+		 |_________________________________________|
 
 
+Product backlog: list of tasks to succesfully achieve the goal of the stakeholders
+
+Sprint plannig: team determines the tasks from product catalog they will work on and deliver during the sprint
+
+Sprint backlog:  tasks dicussing during script planning are then added to sprint backlog 
+
+Scrum team: (usualy of 5 to 9 members) work on the task in the sprint backlog
+ 
+Daily scrum:sessions of 15 minutes generally where the teams synchronize activities and plan what they achieve in the next 24hours
+
+Sprint review: it takes place after the sprint is completed. It involves the team, scrum master, product owner and stakeholders.
+
+
+increment: workable output is given to the stakeholders
+
+*****************Scrum Board********************
+it is a physical or virtual tool that helps team to visualize items in the sprint backlog 

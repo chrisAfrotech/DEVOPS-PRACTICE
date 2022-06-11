@@ -4,10 +4,28 @@
 ******************What is docker********************
 Docker is a platform for building, running and shipping apllications in a consistent manner.
 
+Docker was develop in GO programming language
+
+The machine on which Docker is installed and running is usually referred to as a Docker Host or Host in simple terms.
+
+Docker would virtualize the operating system of the host on which it is installed and running, rather than virtualizing the hardware components.
 
 ****************Virtual machine vs container********
 Container: is an isolated environment for running an application 
 Virtual machine is an abstraction of a machine(Physical hardware)"using hypervisors(vmware, virtualbox)"
+
+*****************Advantage of using Docker************
+-Docker supports multiple applications with different application requirements and dependencies, to be hosted together on the same host, as long as they have the same operating system requirements.
+
+-Storage Optimized. A large number of applications can be hosted on the same host, as containers are usually few megabytes in size and consume very little disk space.
+
+-Robustness. A container does not have an operating system installed on it. Thus, it consumes very little memory in comparison to a virtual machine (which would have a complete operating system installed and running on it). This also reduces the bootup time to just a few seconds, as compared to a couple of minutes required to boot up a virtual machine.
+
+-Reduces costs. Docker is less demanding when it comes to the hardware required to run it
+
+****************Disadvantages of using Docker*******
+Applications with different operating system requirements cannot be hosted together on the same Docker Host. For example, let’s say we have 4 different applications, out of which 3 applications require a Linux-based operating system and the other application requires a Windows-based operating system. In such a scenario, the 3 applications that require Linux-based operating system can be hosted on a single Docker Host, whereas the application that requires a Windows-based operating system needs to be hosted on a different Docker Host.
+
 
 ********Architecture of docker**********************
 it use client server architecture
@@ -17,8 +35,36 @@ linux(linux container)
 windows(windows and linux container)
 Mac(linux virtualmachine to run linux container)
 
+Docker engine  is responsible for the overall functioning of the Docker platform.
+
+Docker Engine is a client-server based application and consists of 3 main components.
+
+	1. Server
+	2. REST API
+	3. Client
+
+The Server runs a daemon known as dockerd (Docker Daemon), which is nothing but a process. It is responsible for creating and managing Docker Images, Containers, Networks and Volumes on the Docker platform.
+
+The REST API specifies how the applications can interact with the Server, and instruct it to get their job done.
+
+The Client is nothing but a command line interface, that allows users to interact with Docker using the commands.
+
+****************Terminaologie**********************
+Docker Image is a template that contains the application, and all the dependencies required to run that application on Docker.
+
+Docker Container is a logical entity, it is a running instance of the Docker Image.
+
+Docker Hub is the official online repository where you could find all the Docker Images that are available for us to use.
+
+Docker Hub also allows us to store and distribute our custom images as well if we wish to do so. We could also make them either public or private, based on our requirements.
+
+
 ****************Installing docker*******************
    linux: sudo apt-get install docker.io
+
+ You don’t have enough resources available on your computer, you need not have to worry — here’s the solution to your problem.
+
+You can head over to Play with Docker, which is an online playground for Docker. It allows users to practice Docker commands immediately, without having to install anything on your machine. The best part is it’s simple to use and available free of cost.
 
 *****************Development workflow***************
 	-Add dockerfile in the application to dockerise it!
@@ -32,7 +78,7 @@ if we use normal method ou were suppose to:
 -copy app files
 -run node app.js
 
-But with using docker you wil package your application
+But with using docker you will package your application
 -open your directory
 -add "Dockerfile"
 -configure it: 
@@ -43,7 +89,7 @@ But with using docker you wil package your application
 
 -docker build -t hello-docker: in terminal to compile the app for production
 -docker image ls :to see the respository
--Running on docker loacl machine: docker run hello-docker
+-Running on docker loacal machine: docker run hello-docker
 -add it to docker registery (docker hub)
 -pull it on the test or developement machine and run it
 
